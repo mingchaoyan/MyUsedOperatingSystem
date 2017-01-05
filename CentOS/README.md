@@ -7,19 +7,41 @@ CentOS 7 安装界面打开网络
 ### 开关机
 
 * 关机
-
-    shwtdown -h now
+```
+shwtdown -h now
+```
 
 ### 用户
 
 * 创建用户
 
-    useradd mingchaoyan
-    passwd mingchaoyan
+```
+useradd mingchaoyan
+passwd mingchaoyan
+```
 
 * 用户添加sudo权限
+```
+vim /etc/sudoers
+```
 
-    vim /etc/sudoers
+### 修改主机名
+```
+hostnamectl set-hostname <主机名> 
+```
+
+### 防火墙
+```
+yum install iptables-services
+systemctl mask firewalld.service
+systemctl stop firewalld.service 
+systemctl disable firewalld.service
+systemctl start iptables.service 
+systemctl enable iptables.service
+$EDITOR /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+systemctl restart iptables.service 
+```
 
 ### 服务
 

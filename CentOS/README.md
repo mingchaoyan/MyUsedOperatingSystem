@@ -59,28 +59,36 @@ systemctl restart iptables.service
 
 #### ssh 
 
-* 修改sshd 配置
-
-    PubkeyAuthentication yes
+* 无密码登录
+    * 修改sshd 配置
+    ```
     #PasswordAuthentication yes
+    ```
 
-* 建 .ssh 目录
-
-    mkdir -p /home/xxx/.ssh
-
-* 粘贴 key
-
-    vim /home/xxx/.ssh/authorized_keys
-
-* 调整权限
-
-    chmod 700 /home/xxx/.ssh
-    chmod 600 /home/xxx/.ssh/authorized_keys
-    chown -R xxx:xxx /home/xxx/.ssh
-
-* 重启sshd
-
+    * 重启sshd
+    ```
     systemctl restart sshd
+    ```
+
+* 添加用户
+
+    * 建 .ssh 目录
+    ```
+    mkdir -p /home/<user-name>/.ssh
+    ```
+
+    * 粘贴 key
+    ```
+    vim /home/<user-name>/.ssh/authorized_keys
+    ```
+
+    * 调整权限
+    ```
+    chmod 700 /home/<user-name>/.ssh
+    chmod 600 /home/<user-name>/.ssh/authorized_keys
+    chown -R <user-name>:<group-name> /home/<user-name>/.ssh
+    ```
+
 
 #### 时间同步
 

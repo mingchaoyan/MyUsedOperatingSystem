@@ -3,7 +3,7 @@
 ## 历史
 
 ### Windows 10
-* 所有硬件统一
+* 所有硬件统一（UWP）
 
 ### Windows 8
 * Windows Store 引入
